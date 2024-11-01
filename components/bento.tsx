@@ -111,7 +111,7 @@ const features = [
       "Using a combination of cutting-edge, and time-tested technologies.",
     href: "/technologies",
     cta: "View all technologies",
-    className: "col-span-3 md:col-span-1",
+    className: "md:col-span-2 md:row-span-1",
     background: (
       <div className="absolute right-0 top-0 w-[80%] origin-top translate-x-0 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_70%)] md:[mask-image:linear-gradient(to_top,transparent_50%,#000_70%)] group-hover:-translate-y-5 group-hover:scale-105">
         <FadeIn direction="up">
@@ -137,20 +137,11 @@ const features = [
   },
   {
     Icon: "",
-    name: "Blogs",
-    description: "",
-    href: "",
-    cta: "Read more",
-    className: "col-span-3 md:col-span-3",
-    background: <MarqueeDemo />,
-  },
-  {
-    Icon: "",
     name: "Tech Domain",
     description: "Sector-agnostic, focused on solving problems with code.",
     href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/projects`,
     cta: "View projects",
-    className: "col-span-3 md:col-span-2",
+    className: "md:col-span-2 md:row-span-2",
     background: (
       <motion.div
         initial={{ opacity: 0 }}
@@ -185,6 +176,15 @@ const features = [
         </Marquee>
       </motion.div>
     ),
+  },
+  {
+    Icon: "",
+    name: "Blogs",
+    description: "",
+    href: "",
+    cta: "Read more",
+    className: "col-span-3 md:col-span-3",
+    background: <MarqueeDemo />,
   },
   {
     Icon: "",
