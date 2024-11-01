@@ -1,5 +1,4 @@
-import { BentoDemo } from "@/components/bento-demo";
-import { MagicCardDemo } from "@/components/magic-card-demo";
+import { Bento } from "@/components/bento";
 
 
 export default function Home() {
@@ -7,8 +6,7 @@ export default function Home() {
     <main className="min-h-screen dotted-background bg-background max-w-5xl mx-auto">
       <div className="container mx-auto px-4 py-16">
       </div>
-      <BentoDemo />
-      <MagicCardDemo />
+      <Bento />
     </main>
   );
 }
