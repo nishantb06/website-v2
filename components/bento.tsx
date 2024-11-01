@@ -44,7 +44,7 @@ const features = [
     Icon: "",
     name: "I'm Nishant",
     description:
-      "software engineer & open-source contributor focused in gen-ai, web, linux, cybersecurity, and finance.",
+      "ML Engineer focused on building LLM, Computer Vision systems",
     className: "col-span-3 md:col-span-1",
     href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}`,
     cta: "Visit portfolio",
