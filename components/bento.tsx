@@ -10,7 +10,7 @@ import { GithubCal } from "./github-calendar";
 import { DATA } from "./data/resume";
 import BlurFade from "./magicui/blur-fade";
 import { ResumeCard } from "./resume-card";
-import { MagicCardDemo } from "./magic-card-demo";
+import { MarqueeDemo } from "./marquee-blogs";
 
 
 const BLUR_FADE_DELAY = 0.04;
@@ -132,12 +132,12 @@ const features = [
   },
   {
     Icon: "",
-    name: "",
+    name: "Blogs",
     description: "",
     href: "",
-    cta: "",
+    cta: "Read more",
     className: "col-span-3 md:col-span-3",
-    background: <MagicCardDemo />,
+    background: <MarqueeDemo />,
   },
   {
     Icon: "",
