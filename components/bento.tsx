@@ -1,4 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
+"use client";
+
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import BlurIn from "./magicui/blur-in";
 import { FadeIn } from "./magicui/fade-in";
@@ -11,7 +13,10 @@ import { DATA } from "./data/resume";
 import BlurFade from "./magicui/blur-fade";
 import { ResumeCard } from "./resume-card";
 import { MarqueeDemo } from "./marquee-blogs";
-
+import { motion } from "framer-motion";
+import { Marquee } from "./magicui/marquee";
+import { defaultDomains } from "./data/default-domains";
+import { cn } from "@/lib/utils";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -138,6 +143,48 @@ const features = [
     cta: "Read more",
     className: "col-span-3 md:col-span-3",
     background: <MarqueeDemo />,
+  },
+  {
+    Icon: "",
+    name: "Tech Domain",
+    description: "Sector-agnostic, focused on solving problems with code.",
+    href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/projects`,
+    cta: "View projects",
+    className: "col-span-3 md:col-span-1",
+    background: (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2.5 }}
+      >
+        <Marquee
+          className="absolute h-2/3 top-10 [--duration:40s] [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] w-full"
+          pauseOnHover
+        >
+          {defaultDomains.map((f, idx) => (
+            <a
+              href={`${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/tags/${f.slug}`}
+              key={idx}
+              className={cn(
+                "relative w-40 h-full cursor-pointer overflow-hidden rounded-xl border p-4 hover:-translate-y-1",
+                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+                "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+                "transform-gpu transition-all duration-300 ease-out hover:blur-none"
+              )}
+            >
+              <div className="flex flex-row items-center gap-2">
+                <div className="flex flex-col">
+                  <figcaption className="text-lg font-bold dark:text-white ">
+                    {f.name}
+                  </figcaption>
+                </div>
+              </div>
+              <blockquote className="mt-2 text-xs">{f.body}</blockquote>
+            </a>
+          ))}
+        </Marquee>
+      </motion.div>
+    ),
   },
   {
     Icon: "",
