@@ -150,7 +150,7 @@ const features = [
     description: "Sector-agnostic, focused on solving problems with code.",
     href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/projects`,
     cta: "View projects",
-    className: "col-span-3 md:col-span-1",
+    className: "col-span-3 md:col-span-2",
     background: (
       <motion.div
         initial={{ opacity: 0 }}
