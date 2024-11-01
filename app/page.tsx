@@ -1,4 +1,5 @@
 import { BentoDemo } from "@/components/bento-demo";
+import { MagicCardDemo } from "@/components/magic-card-demo";
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16">
       </div>
       <BentoDemo />
+      <MagicCardDemo />
     </main>
   );
 }
