@@ -3,8 +3,33 @@ import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import BlurIn from "./magicui/blur-in";
 import { FadeIn } from "./magicui/fade-in";
 import Image from "next/image";
+import Hero from "./hero";
 
 const features = [
+    {
+    Icon: "",
+    name: "",
+    description: "",
+    href: "",
+    cta: "",
+    className: "col-span-3 md:col-span-2",
+    background: (
+      <>
+        <div
+          id="hero"
+          className="absolute right-0 top-0 h-full w-full border-none transition-all duration-300 ease-out"
+        >
+          <Hero />
+        </div>
+
+        <div className="absolute right-0 top-0 z-50">
+          {/* <FadeIn direction="down">
+            <ThemeToggle />
+          </FadeIn> */}
+        </div>
+      </>
+    ),
+  },
   {
     Icon: "",
     name: "I'm Nishant",
