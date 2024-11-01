@@ -99,7 +99,7 @@ const features = [
       "Using a combination of cutting-edge, and time-tested technologies.",
     href: "/technologies",
     cta: "View all technologies",
-    className: "col-span-3 md:col-span-2",
+    className: "col-span-3 md:col-span-1",
     background: (
       <div className="absolute right-0 top-0 w-[80%] origin-top translate-x-0 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_70%)] md:[mask-image:linear-gradient(to_top,transparent_50%,#000_70%)] group-hover:-translate-y-5 group-hover:scale-105">
         <FadeIn direction="up">
@@ -110,12 +110,18 @@ const features = [
   },
   {
     Icon: "",
-    name: "GitHub Contributions",
-    description: "",
-    href: "",
-    cta: "",
-    className: "col-span-3 md:col-span-1",
-    background: <GithubCal />,
+    name: "GitHub Calendar",
+    description: "contributions across repositories",
+    href: "https://github.com/nishantb06",
+    cta: "Go to Github",
+    className: "col-span-3 md:col-span-2",
+    background: (
+      <FadeIn direction="up">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+          <GithubCal />
+        </div>
+      </FadeIn>
+    ),
   },
   {
     Icon: "",
