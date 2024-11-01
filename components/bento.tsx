@@ -6,6 +6,7 @@ import Image from "next/image";
 import Hero from "./hero";
 import { RetroGrid } from "./magicui/retro-grid";
 import Technologies from "./technologies";
+import { GithubCal } from "./github-calendar";
 
 const features = [
     {
@@ -109,6 +110,15 @@ const features = [
   },
   {
     Icon: "",
+    name: "GitHub Contributions",
+    description: "",
+    href: "",
+    cta: "",
+    className: "col-span-3 md:col-span-1",
+    background: <GithubCal />,
+  },
+  {
+    Icon: "",
     name: "",
     description: "",
     className: "col-span-3 md:col-span-3",
@@ -143,7 +153,6 @@ const features = [
       </div>
     ),
   },
-
 ];
 
 export function Bento() {
