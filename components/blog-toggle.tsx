@@ -3,6 +3,7 @@ import {
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip"
+import { Button } from "./ui/button";
 
 interface ToggleGroupDemoProps {
   onToggleChange: (value: string) => void;
@@ -24,7 +25,7 @@ export function ToggleGroupDemo({ onToggleChange }: ToggleGroupDemoProps) {
                 </ToggleGroupItem>
             </TooltipTrigger>
             <TooltipContent>
-                <p>Long form content</p>
+                <Button variant="ghost" size="sm">Long form content</Button>
             </TooltipContent>
         </Tooltip>
         <Tooltip>
@@ -34,7 +35,7 @@ export function ToggleGroupDemo({ onToggleChange }: ToggleGroupDemoProps) {
                 </ToggleGroupItem>
             </TooltipTrigger>
             <TooltipContent>
-                <p>Short form content</p>
+                <Button variant="ghost" size="sm">Short form content</Button>
             </TooltipContent>
         </Tooltip>
       </ToggleGroup>
