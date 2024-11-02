@@ -1,16 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { SearchIcon } from "lucide-react";
+import { CommandDemo } from "@/components/search";
 
 export default function Blog() {
   return (
     <div className="py-10 mx-auto max-w-2xl">
-      <div className="flex justify-center w-full max-w-2xl mx-auto py-20">
+      <div className="flex justify-center w-full py-20">
         <div className="flex gap-2 w-3/4">
-          <Input className="h-10" placeholder="Coming soon..." />
-          <Button>
-            <SearchIcon className="h-4 w-4" />
-          </Button>
+          <CommandDemo />
         </div>
       </div>
     </div>
