@@ -1,10 +1,6 @@
 import {
-  Calculator,
   Calendar,
-  CreditCard,
-  Settings,
   Smile,
-  User,
   Shapes,
   BookOpen,
 } from "lucide-react"
