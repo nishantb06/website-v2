@@ -30,6 +30,11 @@ export function CommandDemo({ onSearchChange }: CommandDemoProps) {
     }
   }
 
+  const handleItemSelect = (value: string) => {
+    setInputValue(value)
+    onSearchChange(value)
+  }
+
   return (
     <Collapsible>
         <Command className="rounded-lg border shadow-md md:min-w-[450px]">
@@ -45,23 +50,35 @@ export function CommandDemo({ onSearchChange }: CommandDemoProps) {
             <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty>
                 <CommandGroup heading="Blogs">
-                <CommandItem>
-                    <Calendar />
+                <CommandItem
+                    onSelect={() => handleItemSelect("Jetson Nano")}
+                    className="cursor-pointer"
+                >
+                    <Calendar className="mr-2 h-4 w-4" />
                     <span>Jetson Nano</span>
                 </CommandItem>
-                <CommandItem>
-                    <Smile />
+                <CommandItem
+                    onSelect={() => handleItemSelect("LLama")}
+                    className="cursor-pointer"
+                >
+                    <Smile className="mr-2 h-4 w-4" />
                     <span>LLama</span>
                 </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Articles">
-                <CommandItem>
-                    <Shapes />
+                <CommandItem
+                    onSelect={() => handleItemSelect("Classes")}
+                    className="cursor-pointer"
+                >
+                    <Shapes className="mr-2 h-4 w-4" />
                     <span>Classes</span>
                 </CommandItem>
-                <CommandItem>
-                    <BookOpen />
+                <CommandItem
+                    onSelect={() => handleItemSelect("Git tips")}
+                    className="cursor-pointer"
+                >
+                    <BookOpen className="mr-2 h-4 w-4" />
                     <span>Git tips</span>
                 </CommandItem>
                 </CommandGroup>
