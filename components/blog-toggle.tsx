@@ -4,10 +4,19 @@ import {
 } from "@/components/ui/toggle-group"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip"
 
-export function ToggleGroupDemo() {
+interface ToggleGroupDemoProps {
+  onToggleChange: (value: string) => void;
+}
+
+export function ToggleGroupDemo({ onToggleChange }: ToggleGroupDemoProps) {
   return (
     <TooltipProvider>
-      <ToggleGroup type="single" variant="outline">
+      <ToggleGroup 
+        type="single" 
+        variant="outline"
+        onValueChange={onToggleChange}
+        defaultValue="blogs"
+      >
         <Tooltip>
             <TooltipTrigger>
                 <ToggleGroupItem value="blogs" aria-label="Toggle blogs">

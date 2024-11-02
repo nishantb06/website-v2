@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
   Calendar,
   Smile,
@@ -16,12 +17,19 @@ import {
 } from "@/components/ui/command"
 import { CollapsibleContent, CollapsibleTrigger, Collapsible } from "@radix-ui/react-collapsible"
 
-export function CommandDemo() {
+interface CommandDemoProps {
+  onSearchChange: (value: string) => void;
+}
+
+export function CommandDemo({ onSearchChange }: CommandDemoProps) {
   return (
     <Collapsible>
         <Command className="rounded-lg border shadow-md md:min-w-[450px]">
         <CollapsibleTrigger>
-            <CommandInput placeholder="Coming Soon..." />
+            <CommandInput 
+              placeholder="Coming Soon..." 
+              onValueChange={onSearchChange}
+            />
         </CollapsibleTrigger>
         <CollapsibleContent>
             <CommandList>
