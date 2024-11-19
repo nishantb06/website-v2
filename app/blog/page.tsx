@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ToggleGroupDemo } from "@/components/blog-toggle";
 import { CommandDemo } from "@/components/search";
+import { TabsDemo } from "@/components/tabsdemo";
 
 export default function Blog() {
   const [toggleValue, setToggleValue] = useState("blogs");
@@ -16,7 +17,7 @@ export default function Blog() {
         </div>
       </div>
       <div className="flex justify-start">
-        <ToggleGroupDemo onToggleChange={setToggleValue} />
+        <TabsDemo />
       </div>
       <div className="flex min-h-screen border-t border-l border-r border-gray-200">
         <p>Showing {toggleValue}, related to {searchValue}</p>
