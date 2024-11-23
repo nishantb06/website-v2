@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="dotted-background bg-background">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
