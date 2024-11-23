@@ -19,7 +19,7 @@ export default function Blog() {
         </div>
         <div className="text-xl text-neutral-500 dark:text-neutral-400">
           <BlurIn duration={0.5} className="h-full">
-            Writings on Engineering, LLMs, and more.
+            Writings on Engineering, AI, and more.
           </BlurIn>
         </div>
       </div>
