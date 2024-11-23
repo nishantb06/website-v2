@@ -36,6 +36,24 @@ const TagSchema = z.object({
   color: z.string(),
 });
 
+// Cover schema
+const CoverSchema = z.union([
+  z.object({
+    type: z.literal("external"),
+    external: z.object({
+      url: z.string(),
+    }),
+  }),
+  z.object({
+    type: z.literal("file"),
+    file: z.object({
+      url: z.string(),
+      expiry_time: z.string(),
+    }),
+  }),
+  z.null(),
+]);
+
 // Properties schema
 const PropertiesSchema = z.object({
   Status: z.object({
@@ -82,7 +100,7 @@ export const NotionBlogSchema = z.object({
   last_edited_time: z.string(),
   created_by: UserSchema,
   last_edited_by: UserSchema,
-  cover: z.null(),
+  cover: CoverSchema,
   icon: z.null(),
   parent: z.object({
     type: z.literal("database_id"),

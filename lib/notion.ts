@@ -2,6 +2,7 @@ import 'server-only'
 import { Client } from "@notionhq/client";
 import React from 'react';
 import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import { NotionBlogsSchema } from '@/utils/notion.dtypes';
 
 export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -17,7 +18,9 @@ export const fetchBlogs = React.cache(async () => {
       },
     },
   });
-  return response.results;
+  // Validate the response
+  const validatedBlogs = NotionBlogsSchema.parse(response.results);
+  return validatedBlogs;
 });
 
 export const fetchBlogBySlug = React.cache(async (slug: string) => {

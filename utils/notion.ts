@@ -6,7 +6,7 @@ import {
   PageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { cache } from "react";
-import { NotionBlogsSchema, NotionBlogs } from './notion.dtypes';
+import { NotionBlogsSchema } from './notion.dtypes';
 
 export const notionClient = new Client({
   auth: process.env.NOTION_API_KEY,
