@@ -9,8 +9,8 @@ export default function Blog() {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="py-10 mx-auto max-w-2xl ">
-      <div className="flex justify-center w-full pt-20 pb-10">
+    <div className="py-4 mx-auto max-w-2xl ">
+      <div className="flex justify-center w-full pt-4 pb-10">
         <div className="flex w-7/1">
           <CommandDemo onSearchChange={setSearchValue} />
         </div>

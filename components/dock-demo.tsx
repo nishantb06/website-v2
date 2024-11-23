@@ -95,67 +95,67 @@ const DATA = {
 
 export function DockDemo() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
-        <TooltipProvider>
-        <Dock direction="middle">
-            {DATA.navbar.map((item) => (
+    <div className="fixed bottom-8 left-0 right-0 z-50">
+      <TooltipProvider>
+        <Dock>
+          {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
-                <Tooltip>
+              <Tooltip>
                 <TooltipTrigger asChild>
-                    <Link
+                  <Link
                     href={item.href}
                     aria-label={item.label}
                     className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full",
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full",
                     )}
-                    >
+                  >
                     <item.icon className="size-4" />
-                    </Link>
+                  </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <p>{item.label}</p>
+                  <p>{item.label}</p>
                 </TooltipContent>
-                </Tooltip>
+              </Tooltip>
             </DockIcon>
-            ))}
-            <Separator orientation="vertical" className="h-full" />
-            {Object.entries(DATA.contact.social).map(([name, social]) => (
+          ))}
+          <Separator orientation="vertical" className="h-full" />
+          {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name}>
-                <Tooltip>
+              <Tooltip>
                 <TooltipTrigger asChild>
-                    <Link
+                  <Link
                     href={social.url}
                     aria-label={social.name}
                     className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full",
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full",
                     )}
-                    >
+                  >
                     <social.icon className="size-4" />
-                    </Link>
+                  </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <p>{name}</p>
+                  <p>{name}</p>
                 </TooltipContent>
-                </Tooltip>
+              </Tooltip>
             </DockIcon>
-            ))}
-            <Separator orientation="vertical" className="h-full py-2" />
-            <DockIcon>
+          ))}
+          <Separator orientation="vertical" className="h-full py-2" />
+          <DockIcon>
             <Tooltip>
-                <TooltipTrigger asChild>
+              <TooltipTrigger asChild>
                 <div className="rounded-full">
-                    <ModeToggle />
+                  <ModeToggle />
                 </div>
-                </TooltipTrigger>
-                <TooltipContent>
+              </TooltipTrigger>
+              <TooltipContent>
                 <p>Theme</p>
-                </TooltipContent>
+              </TooltipContent>
             </Tooltip>
-            </DockIcon>
+          </DockIcon>
         </Dock>
-        </TooltipProvider>
+      </TooltipProvider>
     </div>
   );
 }
