@@ -24,7 +24,7 @@ export const fetchBlogs = React.cache(async () => {
 });
 
 export const fetchBlogBySlug = React.cache(async (slug: string) => {
-  return notion.databases.query({
+  const blog = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
       property: "slug",
@@ -33,6 +33,9 @@ export const fetchBlogBySlug = React.cache(async (slug: string) => {
       },
     },
   }).then((res) => res.results[0] as PageObjectResponse | undefined);
+
+  const validatedBlog = NotionBlogSchema.parse(blog);
+  return validatedBlog;
 });
 
 export const fetchBlogBlocks = React.cache(async (blogId: string) => {

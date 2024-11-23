@@ -1,5 +1,6 @@
 import { Post } from "@/components/blogPost";
 import { fetchBlogBlocks, fetchBlogBySlug, notion } from "@/lib/notion";
+import { NotionBlog } from "@/utils/notion.dtypes";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
@@ -10,7 +11,7 @@ export default async function TempBlog({
 }: {
   params: { slug: string };
 }) {
-  const blog = await fetchBlogBySlug(params.slug);
+  const blog: NotionBlog = await fetchBlogBySlug(params.slug);
   console.log(blog);
   if (!blog) {
     notFound();
