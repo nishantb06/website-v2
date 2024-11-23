@@ -1,3 +1,4 @@
+import { Post } from "@/components/blogPost";
 import { fetchBlogBlocks, fetchBlogBySlug, notion } from "@/lib/notion";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
@@ -10,6 +11,7 @@ export default async function TempBlog({
   params: { slug: string };
 }) {
   const blog = await fetchBlogBySlug(params.slug);
+  console.log(blog);
   if (!blog) {
     notFound();
   }
@@ -20,5 +22,5 @@ export default async function TempBlog({
   renderer.use(bookmarkPlugin(undefined));
   const html = await renderer.render(...blocks);
 
-  return <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />;
+  return <Post title={blog.properties.Title.title[0].plain_text} content={html} />;
 }
