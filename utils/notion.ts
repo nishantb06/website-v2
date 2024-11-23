@@ -6,13 +6,14 @@ import {
   PageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { cache } from "react";
+import { NotionBlogsSchema, NotionBlogs } from './notion.dtypes';
 
 export const notionClient = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export const getBlogs = cache(() => {
-  return notionClient.databases.query({
+export const getBlogs = cache(async () => {
+  const response = await notionClient.databases.query({
     filter: {
       property: "Status",
       select: {
@@ -21,6 +22,10 @@ export const getBlogs = cache(() => {
     },
     database_id: process.env.NOTION_DATABASE_ID!,
   });
+  
+  // Validate the response
+  const validatedBlogs = NotionBlogsSchema.parse(response.results);
+  return validatedBlogs;
 });
 
 export const getBlogContent = cache((pageId: string) => {
