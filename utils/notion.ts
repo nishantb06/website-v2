@@ -1,27 +1,49 @@
-import { Client } from '@notionhq/client';
-import { NextApiRequest, NextApiResponse } from 'next';
+import "server-only";
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
-export async function getBlogPosts() {
-  const databaseId = process.env.NOTION_DATABASE_ID || "";
-  const response = await notion.databases.query({
-    database_id: databaseId,
+import { Client } from "@notionhq/client";
+import {
+  BlockObjectResponse,
+  PageObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
+import { cache } from "react";
+
+export const notionClient = new Client({
+  auth: process.env.NOTION_API_KEY,
+});
+
+export const getBlogs = cache(() => {
+  return notionClient.databases.query({
+    filter: {
+      property: "Status",
+      select: {
+        equals: "Published",
+      },
+    },
+    database_id: process.env.NOTION_DATABASE_ID!,
   });
-  console.log(response);
-  return response;
-  // return response.results.map((page) => ({
-  //   id: page.id,
-  //   title: page.properties['Title'].title[0].text.content,
-  //   date: page.properties['Date'].date.start,
-  //   tags: page.properties['Tags'].multi_select.map((tag) => tag.name),
-  //   content: page.properties['Content'].rich_text[0].text.content,
-  // }));
-}
+});
 
+export const getBlogContent = cache((pageId: string) => {
+  return notionClient.blocks.children
+    .list({ block_id: pageId })
+    .then((res) => res.results as BlockObjectResponse[]);
+});
 
-// import { getBlogPosts } from '../../lib/notion';
+export const getBlogBySlug = cache((slug: string) => {
+  return notionClient.databases
+    .query({
+      database_id: process.env.NOTION_DATABASE_ID!,
+      filter: {
+        property: "slug",
+        rich_text: {
+          equals: slug,
+        },
+      },
+    })
+    .then((res) => res.results[0] as PageObjectResponse | undefined);
+});
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const posts = await getBlogPosts();
-  res.status(200).json(posts);
-}
+export const getBlogBlocks = cache((pageId: string) => {
+  return notionClient.blocks.children.list({ block_id: pageId })
+    .then((res) => res.results as BlockObjectResponse[]);
+});
