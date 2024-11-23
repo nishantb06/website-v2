@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ToggleGroupDemo } from "@/components/blog-toggle";
 import { CommandDemo } from "@/components/search";
+import BlurIn from "@/components/magicui/blur-in";
 
 export default function Blog() {
   const [toggleValue, setToggleValue] = useState("blogs");
@@ -10,8 +11,20 @@ export default function Blog() {
 
   return (
     <div className="py-4 mx-auto max-w-2xl ">
+      <div className="container mx-auto px-4 py-4">
+        <div className="text-5xl font-bold">
+          <BlurIn duration={0.5} className="h-full">
+            Nishant&apos;s Tech Blog
+          </BlurIn>
+        </div>
+        <div className="text-xl text-neutral-500 dark:text-neutral-400">
+          <BlurIn duration={0.5} className="h-full">
+            Writings on Engineering, LLMs, and more.
+          </BlurIn>
+        </div>
+      </div>
       <div className="flex justify-center w-full pt-4 pb-10">
-        <div className="flex w-7/1">
+          <div className="flex w-7/1">
           <CommandDemo onSearchChange={setSearchValue} />
         </div>
       </div>
