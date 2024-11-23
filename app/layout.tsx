@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { DockDemo } from "@/components/dock-demo";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Nishant Bhansali",
@@ -15,8 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DockDemo />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <DockDemo />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

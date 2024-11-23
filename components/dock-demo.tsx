@@ -145,9 +145,7 @@ export function DockDemo() {
           <DockIcon>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="rounded-full">
-                  <ModeToggle />
-                </div>
+                <ModeToggle />
               </TooltipTrigger>
               <TooltipContent>
                 <p>Theme</p>
