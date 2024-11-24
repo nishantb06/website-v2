@@ -28,9 +28,20 @@ export default async function TempBlog({
 
 
   return (
-    <div className="max-w-3xl mx-auto justify-center">
-      <div style={{ maxWidth: 768 }}>
-        <NotionRenderer blockMap={blockMap} />
+    <div className="mx-auto">
+      {blog.cover?.type === 'external' && (
+        <div className="w-full h-[300px] relative mb-8">
+          <img
+            src={blog.cover.external.url}
+            alt="Blog cover"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+      )}
+      <div className="max-w-3xl mx-auto justify-left">
+        <div style={{ maxWidth: 768 }}>
+          <NotionRenderer blockMap={blockMap} />
+        </div>
       </div>
     </div>
   );
