@@ -36,6 +36,14 @@ export default async function TempBlog({
             alt="Blog cover"
             className="w-full h-full object-cover rounded-lg"
           />
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center">
+            <h1 className="text-5xl font-bold text-white px-4 text-center">
+              {blog.properties.Title.title[0].plain_text}
+            </h1>
+            <p className="text-xl text-white mt-4">
+              {blog.properties.Subtitle.rich_text[0]?.plain_text}
+            </p>
+          </div>
         </div>
       )}
       <div className="max-w-3xl mx-auto justify-left">
