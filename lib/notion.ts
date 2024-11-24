@@ -2,7 +2,7 @@ import 'server-only'
 import { Client } from "@notionhq/client";
 import React from 'react';
 import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import { NotionBlogsSchema } from '@/utils/notion.dtypes';
+import { NotionBlogSchema, NotionBlogsSchema } from '@/utils/notion.dtypes';
 
 export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
