@@ -110,7 +110,7 @@ export const NotionBlogSchema = z.object({
   in_trash: z.boolean(),
   properties: PropertiesSchema,
   url: z.string(),
-  public_url: z.null(),
+  public_url: z.union([z.string(), z.null()]),
 });
 
 export const NotionBlogsSchema = z.array(NotionBlogSchema);
