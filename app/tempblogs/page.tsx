@@ -12,6 +12,7 @@ export default async function TempBlogs() {
       <div>
         {blogs.map((blog) => (
           <div key={blog.id}>
+            <p className="text-sm text-gray-500">Page ID: {blog.id}</p>
             <h2>{blog.properties.Title.title[0].plain_text}</h2>
             <p>{blog.properties.Subtitle.rich_text[0]?.plain_text}</p>
             <div>
