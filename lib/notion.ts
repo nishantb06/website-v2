@@ -55,3 +55,25 @@ export async function getStaticProps(notionPageId: string) {
     }
   };
 }
+
+export type SlugToIdMap = { [key: string]: string };
+
+export const getSlugToIdMap = React.cache(async () => {
+  const blogs = await fetchBlogs();
+  const slugToId: SlugToIdMap = {};
+  
+  blogs.forEach((blog) => {
+    const slug = blog.properties.slug.rich_text[0]?.plain_text;
+    if (slug) {
+      slugToId[slug] = blog.id;
+    }
+  });
+  
+  return slugToId;
+});
+
+export function removeNoneRoles(blocks: any) {
+    return Object.fromEntries(
+        Object.entries(blocks).filter(([_, value]) => value.role !== 'none')
+    );
+}

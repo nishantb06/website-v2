@@ -1,14 +1,25 @@
 "use server";
 
-import { fetchBlogs } from "@/lib/notion";
+import { fetchBlogs, getSlugToIdMap } from "@/lib/notion";
 import { NotionBlogs } from "@/utils/notion.dtypes";
 
 export default async function TempBlogs() {
   const blogs: NotionBlogs = await fetchBlogs();
+  const slugToId = await getSlugToIdMap();
   
   return (
     <div>
       <h1>Blogs</h1>
+      {/* Display the slug to ID mapping */}
+      <div className="mb-8 p-4 bg-gray-800 rounded">
+        <h2 className="text-xl font-bold mb-2">Slug to ID Mapping:</h2>
+        {Object.entries(slugToId).map(([slug, id]) => (
+          <div key={slug} className="text-sm">
+            <span className="text-green-400">{slug}</span>: <span className="text-blue-400">{id}</span>
+          </div>
+        ))}
+      </div>
+      {/* Original blog list */}
       <div>
         {blogs.map((blog) => (
           <div key={blog.id}>
