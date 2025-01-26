@@ -12,8 +12,9 @@ interface BlogCardProps {
   tags: string[];
   slug: string;
   coverImage?: string;
+  date?: string;
 }
-export const BlogCard = ({ title, subtitle, tags, coverImage, slug }: BlogCardProps) => {
+export const BlogCard = ({ title, subtitle, tags, coverImage, slug, date }: BlogCardProps) => {
   return (
     <Card className="flex flex-col border-none shadow-md mb-4 hover:-translate-y-1 group">
       <CardHeader className="relative">
@@ -28,6 +29,15 @@ export const BlogCard = ({ title, subtitle, tags, coverImage, slug }: BlogCardPr
           )}
         <CardTitle>{title}</CardTitle>
         <CardDescription>{subtitle}</CardDescription>
+        {date && (
+          <CardDescription className="text-sm text-muted-foreground">
+            {new Date(date).toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </CardDescription>
+        )}
         <Link href={`/blog/${slug}`}>
           <ArrowRightIcon className="w-5 h-5 absolute top-4 right-4 opacity-0 transition-all duration-300 group-hover:opacity-100 cursor-pointer" />
         </Link>

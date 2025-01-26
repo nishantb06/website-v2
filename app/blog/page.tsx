@@ -42,18 +42,15 @@ export default async function Blog() {
       </div> */}
       <div>
         {blogs.map((blog) => (
-          <BlogCard key={blog.id} slug={blog.properties.slug.rich_text[0]?.plain_text} coverImage = {blog.cover?.external?.url} title={blog.properties.Title.title[0].plain_text} subtitle={blog.properties.Subtitle.rich_text[0]?.plain_text} tags={blog.properties.Tags.multi_select.map((tag) => tag.name)} />
-          // <div key={blog.id}>
-          //   {/* <p className="text-sm text-gray-500">Page ID: {blog.id}</p> */}
-          //   <p>========================================</p>
-          //   <h2>{blog.properties.Title.title[0].plain_text}</h2>
-          //   <p>{blog.properties.Subtitle.rich_text[0]?.plain_text}</p>
-          //   <div>
-          //     {blog.properties.Tags.multi_select.map((tag) => (
-          //       <span key={tag.id}>{tag.name}</span>
-          //     ))}
-          //   </div>
-          // </div>
+          <BlogCard 
+            key={blog.id} 
+            slug={blog.properties.slug.rich_text[0]?.plain_text} 
+            coverImage={blog.cover?.type === "external" ? blog.cover.external.url : blog.cover?.type === "file" ? blog.cover.file.url : undefined}
+            title={blog.properties.Title.title[0].plain_text} 
+            subtitle={blog.properties.Subtitle.rich_text[0]?.plain_text} 
+            tags={blog.properties.Tags.multi_select.map((tag) => tag.name)}
+            date={blog.properties.Date.date?.start}
+          />
         ))}
       </div>
     </div>
