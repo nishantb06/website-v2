@@ -163,31 +163,7 @@ const features = [
       </motion.div>
     ),
   },
-  {
-    Icon: "",
-    name: "GitHub Calendar",
-    description: "contributions across repositories",
-    href: "https://github.com/nishantb06",
-    cta: "Go to Github",
-    className: "col-span-3 md:col-span-2",
-    background: (
-      <FadeIn direction="up">
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-          <GithubCal />
-        </div>
-      </FadeIn>
-    ),
-  },
-  {
-    Icon: "",
-    name: "Blogs",
-    description: "",
-    href: "/blog",
-    cta: "Read more",
-    className: "col-span-1 md:col-span-1",
-    background: <MarqueeDemo />,
-  },
-  {
+{
     Icon: "",
     name: "",
     description: "",
@@ -222,6 +198,15 @@ const features = [
   },
   {
     Icon: "",
+    name: "Blogs",
+    description: "",
+    href: "/blog",
+    cta: "Read more",
+    className: "col-span-1 md:col-span-1",
+    background: <MarqueeDemo />,
+  },
+  {
+    Icon: "",
     name: "",
     description: "",
     className: "col-span-3 md:col-span-1",
@@ -235,6 +220,21 @@ const features = [
           </div>
         </div>
       </div>
+    ),
+  },
+  {
+    Icon: "",
+    name: "GitHub Calendar",
+    description: "contributions across repositories",
+    href: "https://github.com/nishantb06",
+    cta: "Go to Github",
+    className: "col-span-3 md:col-span-2",
+    background: (
+      <FadeIn direction="up">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+          <GithubCal />
+        </div>
+      </FadeIn>
     ),
   },
   {
