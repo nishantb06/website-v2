@@ -1,7 +1,7 @@
 'use client'
 
+import ProjectPosts from "@/components/project-posts";
 
 export default function Projects() {
-//   const projects = await fetchProjects();
-  return <p>Projects</p>;
+  return <ProjectPosts />;
 }
