@@ -1,52 +1,14 @@
+"use server"
 import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
+import { fetchBlogs } from "@/lib/notion";
 
-const reviews = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
-  },
-  {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
-  },
-  {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
-  },
-  {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
-  },
-  {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
-  },
-  {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
-  },
-];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+// const firstRow = reviews.slice(0, reviews.length / 2);
+// const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({
   img,
   name,
-  username,
   body,
 }: {
   img: string;
@@ -65,20 +27,31 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <img className="rounded-full" width="36" height="36" alt="" src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
+          <p className="text-sm font-semibold dark:text-white">
             {name}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          </p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <p className="mt-2 text-sm">{body}</p>
     </figure>
   );
 };
 
-export function MarqueeDemo() {
+export async function MarqueeDemo() {
+  const blogs = await fetchBlogs();
+  const blogsDataForMarquee = blogs.map((blog) => ({
+    name: blog.properties.Title.title[0].plain_text,
+    username: blog.properties.slug.rich_text[0]?.plain_text,
+    body: blog.properties.Subtitle.rich_text[0]?.plain_text,
+    img: blog.cover?.type === "external" ? blog.cover.external.url : 
+         blog.cover?.type === "file" ? blog.cover.file.url : 
+         "/images/default-blog.jpg"  // Provide a default image path
+  }));
+  console.log(blogsDataForMarquee);
+  const firstRow = blogsDataForMarquee.slice(0, blogsDataForMarquee.length / 2);
+  const secondRow = blogsDataForMarquee.slice(blogsDataForMarquee.length / 2);
   return (
     <div className="flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:20s]">

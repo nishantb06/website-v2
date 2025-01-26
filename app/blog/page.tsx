@@ -4,7 +4,7 @@
 // import { ToggleGroupDemo } from "@/components/blog-toggle";
 // import { CommandDemo } from "@/components/search";
 import BlurIn from "@/components/magicui/blur-in";
-import { fetchBlogs, getSlugToIdMap } from "@/lib/notion";
+import { fetchBlogs } from "@/lib/notion";
 import { NotionBlogs } from "@/utils/notion.dtypes";
 import { BlogCard } from "@/components/blog-card";
 

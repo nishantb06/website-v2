@@ -182,7 +182,7 @@ const features = [
     Icon: "",
     name: "Blogs",
     description: "",
-    href: "",
+    href: "/blog",
     cta: "Read more",
     className: "col-span-1 md:col-span-1",
     background: <MarqueeDemo />,
