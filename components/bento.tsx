@@ -111,7 +111,7 @@ const features = [
       "Using a combination of cutting-edge, and time-tested technologies.",
     href: "/technologies",
     cta: "View all technologies",
-    className: "md:col-span-2 md:row-span-1",
+    className: "md:col-span-1 md:row-span-1",
     background: (
       <div className="absolute right-0 top-0 w-[80%] origin-top translate-x-0 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_70%)] md:[mask-image:linear-gradient(to_top,transparent_50%,#000_70%)] group-hover:-translate-y-5 group-hover:scale-105">
         <FadeIn direction="up">
@@ -122,26 +122,11 @@ const features = [
   },
   {
     Icon: "",
-    name: "GitHub Calendar",
-    description: "contributions across repositories",
-    href: "https://github.com/nishantb06",
-    cta: "Go to Github",
-    className: "col-span-3 md:col-span-2",
-    background: (
-      <FadeIn direction="up">
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-          <GithubCal />
-        </div>
-      </FadeIn>
-    ),
-  },
-  {
-    Icon: "",
     name: "Tech Domain",
     description: "Sector-agnostic, focused on solving problems with code.",
     href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/projects`,
     cta: "View projects",
-    className: "md:col-span-2 md:row-span-2",
+    className: "md:col-span-2 md:row-span-1",
     background: (
       <motion.div
         initial={{ opacity: 0 }}
@@ -179,18 +164,33 @@ const features = [
   },
   {
     Icon: "",
+    name: "GitHub Calendar",
+    description: "contributions across repositories",
+    href: "https://github.com/nishantb06",
+    cta: "Go to Github",
+    className: "col-span-3 md:col-span-2",
+    background: (
+      <FadeIn direction="up">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+          <GithubCal />
+        </div>
+      </FadeIn>
+    ),
+  },
+  {
+    Icon: "",
     name: "Blogs",
     description: "",
     href: "",
     cta: "Read more",
-    className: "col-span-3 md:col-span-3",
+    className: "col-span-1 md:col-span-1",
     background: <MarqueeDemo />,
   },
   {
     Icon: "",
     name: "",
     description: "",
-    className: "col-span-3 md:col-span-3",
+    className: "md:row-span-1 md:col-span-3",
     background: (
       <section id="work" className="flex flex-col p-5">
         <div className="flex min-h-0 flex-col gap-y-3">
@@ -239,12 +239,12 @@ const features = [
               </BlurIn>
             </div>
             <div className="w-full flex justify-center text-neutral-500 dark:text-neutral-400">
-              Leave your email to get the conversation started. We&apos;ll be in
-              touch soon. Get notified about new blogs, projects, and more.
+              Shoot a dm on X or send an email to get the conversation started. I&apos;ll be in
+              touch soon.
             </div>
-            <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
+            {/* <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
               *Your email will never be shared with anyone.
-            </div>
+            </div> */}
             <div className="">
               {/* <EmailForm /> */}
             </div>

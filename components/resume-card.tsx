@@ -44,9 +44,9 @@ export const ResumeCard = ({
       className="block cursor-pointer"
       onClick={handleClick}
     >
-      <Card className="flex">
+      <Card className="flex border-0">
         <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
+          <Avatar className="size-14  ml-2 m-auto bg-muted-background dark:bg-foreground mt-4">
             <AvatarImage
               src={logoUrl}
               alt={altText}
@@ -55,10 +55,10 @@ export const ResumeCard = ({
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
+        <div className="flex-grow items-center flex-col group">
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+              <h3 className="inline-flex items-center text-left font-semibold leading-none text-m sm:text-sm">
                 {title}
                 {badges && (
                   <span className="inline-flex gap-x-1">
@@ -80,11 +80,11 @@ export const ResumeCard = ({
                   )}
                 />
               </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+              <div className="text-sm sm:text-base tabular-nums text-muted-foreground text-right">
                 {period}
               </div>
             </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+            {subtitle && <div className="font-sans text-sm">{subtitle}</div>}
           </CardHeader>
           {description && (
             <motion.div
@@ -98,7 +98,7 @@ export const ResumeCard = ({
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="text-xs sm:text-sm mb-2"
             >
               {description}
             </motion.div>
