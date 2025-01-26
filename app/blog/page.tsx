@@ -42,7 +42,7 @@ export default async function Blog() {
       </div> */}
       <div>
         {blogs.map((blog) => (
-          <BlogCard key={blog.id} title={blog.properties.Title.title[0].plain_text} subtitle={blog.properties.Subtitle.rich_text[0]?.plain_text} tags={blog.properties.Tags.multi_select.map((tag) => tag.name)} />
+          <BlogCard key={blog.id} coverImage = {blog.cover?.external?.url} title={blog.properties.Title.title[0].plain_text} subtitle={blog.properties.Subtitle.rich_text[0]?.plain_text} tags={blog.properties.Tags.multi_select.map((tag) => tag.name)} />
           // <div key={blog.id}>
           //   {/* <p className="text-sm text-gray-500">Page ID: {blog.id}</p> */}
           //   <p>========================================</p>
