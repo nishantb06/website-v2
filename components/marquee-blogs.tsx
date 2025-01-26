@@ -49,9 +49,9 @@ export async function MarqueeDemo() {
          blog.cover?.type === "file" ? blog.cover.file.url : 
          "/images/default-blog.jpg"  // Provide a default image path
   }));
-  console.log(blogsDataForMarquee);
   const firstRow = blogsDataForMarquee.slice(0, blogsDataForMarquee.length / 2);
   const secondRow = blogsDataForMarquee.slice(blogsDataForMarquee.length / 2);
+
   return (
     <div className="flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:20s]">
