@@ -9,8 +9,8 @@ export function GithubCal() {
 
   // Define custom theme colors with black
   const customTheme = {
-    light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#000000'],
-    dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#000000'],
+    // light: ['#f1f5f9', '#e2e8f0', '#cbd5e1', '#94a3b8', '#64748b'],
+    // dark: ['#27272a', '#3f3f46', '#52525b', '#71717a', '#a1a1aa'],
   };
 
   return (
@@ -21,7 +21,7 @@ export function GithubCal() {
           username="nishantb06"
           showWeekdayLabels={false}
           fontSize={16}
-          theme={customTheme}
+          // theme={customTheme}
         />
       </div>
     </div>
