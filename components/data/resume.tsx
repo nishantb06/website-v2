@@ -81,7 +81,7 @@ export const DATA = {
       start: "July 2024",
       end: "Present",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+        "As a backend engineer in an innovative ed-tech platform, I developed advanced NLP and machine learning solutions to enhance teaching productivity. I created sophisticated features using prompt engineering, trained two specialized models for language detection and higher-order question transformation, and implemented a comprehensive LLM orchestrator. My work demonstrated deep technical expertise in bridging frontend, backend, machine learning, and product development, delivering intelligent tools that directly support teacher's daily activities.",
     },
     {
       company: "Sharechat",
@@ -93,7 +93,7 @@ export const DATA = {
       start: "June 2022",
       end: "June 2024",
       description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+        "Worked on building and deploying NSFW content detection models. These systems were handling a massive scale (300M active users) and experienced managing scalable(k8s) ML workloads here .",
     },
     
   ],

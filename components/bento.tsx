@@ -190,7 +190,7 @@ const features = [
     Icon: "",
     name: "",
     description: "",
-    className: "col-span-3 md:col-span-3",
+    className: "md:row-span-1 md:col-span-3",
     background: (
       <section id="work" className="flex flex-col p-5">
         <div className="flex min-h-0 flex-col gap-y-3">
