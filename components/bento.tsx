@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 import { Marquee } from "./magicui/marquee";
 import { defaultDomains } from "./data/default-domains";
 import { cn } from "@/lib/utils";
+import { RippleCard } from "./ui/ripper-card";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -190,7 +191,7 @@ const features = [
     Icon: "",
     name: "",
     description: "",
-    className: "md:row-span-1 md:col-span-3",
+    className: "md:row-span-1 md:col-span-2",
     background: (
       <section id="work" className="flex flex-col p-5">
         <div className="flex min-h-0 flex-col gap-y-3">
@@ -217,6 +218,23 @@ const features = [
           ))}
         </div>
       </section>
+    ),
+  },
+  {
+    Icon: "",
+    name: "",
+    description: "",
+    className: "col-span-3 md:col-span-1",
+    href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/now`,
+    cta: "Ideas",
+    background: (
+      <div className="absolute h-full w-full left-0 top-0 origin-top rounded-md transition-all duration-300 ease-out group-hover:scale-[105%]">
+        <div className="absolute h-full w-full [mask-image:linear-gradient(to_top,transparent_20%,#000_70%)]">
+          <div className="absolute h-full w-full [mask-image:linear-gradient(to_bottom,transparent_2%,#000_10%)]">
+            <RippleCard />
+          </div>
+        </div>
+      </div>
     ),
   },
   {
