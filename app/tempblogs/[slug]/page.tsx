@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import "react-notion/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import 'prismjs/components/prism-python';
+import BlurIn from "@/components/magicui/blur-in";
 
 export default async function TempBlog({
   params,
@@ -48,7 +49,9 @@ export default async function TempBlog({
       )}
       <div className="max-w-3xl mx-auto justify-left">
         <div style={{ maxWidth: 768 }}>
-          <NotionRenderer blockMap={blockMap} />
+          <BlurIn duration={0.5} className="h-full">
+            <NotionRenderer blockMap={blockMap} />
+          </BlurIn>
         </div>
       </div>
     </div>
