@@ -37,7 +37,7 @@ export const BlogCard = ({
         <div className="flex-grow p-4 pr-0 flex flex-col justify-between">
           <div>
             <h2 className="text-2xl mb-2 line-clamp-2">{title}</h2>
-            <p className="text-sm text-muted-foreground line-clamp-2 mb-2">{subtitle}</p>
+            <p className="text-lg text-muted-foreground line-clamp-2 mb-2">{subtitle}</p>
           </div>
           
           <div className="flex items-center justify-between">
