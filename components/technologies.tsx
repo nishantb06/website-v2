@@ -40,15 +40,14 @@ const slugs = [
   "zod",
   "golang",
 ];
+export default function Technologies() {
+  const images = slugs.map(
+    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`,
+  );
 
-interface TechnologiesProps {
-  liveLinks?: boolean;
-}
-
-export default function Technologies({ liveLinks = false }: TechnologiesProps) {
   return (
     <div className="">
-      <IconCloud iconSlugs={slugs} liveLinks={liveLinks} />
+        <IconCloud images={images} />
     </div>
   );
 }
