@@ -2,7 +2,7 @@ import { getBlogBySlug, getBlogContent, notionClient } from "@/utils/notion";
 import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
-import { Post } from "@/components/blogs";
+import { Post } from "@/components/blogPost";
 import { notFound } from "next/navigation";
 export default async function Page({ params }: { params: { slug: string } }) {
   console.log("Slug: ", params);

@@ -1,11 +1,22 @@
-import {  fetchBlogBySlug, getStaticProps } from "@/lib/notion";
+import {  fetchBlogBySlug } from "@/lib/notion";
 import { NotionBlog } from "@/utils/notion.dtypes";
-import { NotionRenderer } from "react-notion";
+// import { NotionRenderer } from "react-notion";
 import { notFound } from "next/navigation";
 import "react-notion/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import 'prismjs/components/prism-python';
-import BlurIn from "@/components/magicui/blur-in";
+import { NotionAPI } from 'notion-client'
+import * as React from 'react'
+import { NotionRenderer } from 'react-notion-x'
+// core styles shared by all of react-notion-x (required)
+import 'react-notion-x/src/styles.css'
+
+// used for code syntax highlighting (optional)
+import 'prismjs/themes/prism-tomorrow.css'
+
+// used for rendering equations (optional)
+import 'katex/dist/katex.min.css'
+import Prism from 'prismjs'
 
 export default async function TempBlog({
   params,
@@ -17,8 +28,9 @@ export default async function TempBlog({
   if (!blog) {
     notFound();
   }
+  const notion = new NotionAPI()
   const pageId = blog.id.replace(/-/g, '');
-  const { props: { blockMap } } = await getStaticProps(pageId);
+  const recordMap = await notion.getPage(pageId);
   // const blocks = await fetchBlogBlocks(blog.id);
 
   // const renderer = new NotionRenderer({ client: notion });
@@ -29,31 +41,6 @@ export default async function TempBlog({
 
 
   return (
-    <div className="mx-auto">
-      {blog.cover?.type === 'external' && (
-        <div className="w-full h-[300px] relative mb-8">
-          <img
-            src={blog.cover.external.url}
-            alt="Blog cover"
-            className="w-full h-full object-cover rounded-lg"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center">
-            <h1 className="text-5xl font-bold text-white px-4 text-center">
-              {blog.properties.Title.title[0].plain_text}
-            </h1>
-            <p className="text-xl text-white mt-4">
-              {blog.properties.Subtitle.rich_text[0]?.plain_text}
-            </p>
-          </div>
-        </div>
-      )}
-      <div className="max-w-3xl mx-auto justify-left">
-        <div style={{ maxWidth: 768 }}>
-          <BlurIn duration={0.5} className="h-full">
-            <NotionRenderer blockMap={blockMap} />
-          </BlurIn>
-        </div>
-      </div>
-    </div>
-  );
+    <NotionRenderer recordMap={recordMap} fullPage={true} darkMode={false} />
+  )
 }
