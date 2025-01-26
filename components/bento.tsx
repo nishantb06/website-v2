@@ -239,12 +239,12 @@ const features = [
               </BlurIn>
             </div>
             <div className="w-full flex justify-center text-neutral-500 dark:text-neutral-400">
-              Leave your email to get the conversation started. We&apos;ll be in
-              touch soon. Get notified about new blogs, projects, and more.
+              Shoot a dm on X or send an email to get the conversation started. I&apos;ll be in
+              touch soon.
             </div>
-            <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
+            {/* <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
               *Your email will never be shared with anyone.
-            </div>
+            </div> */}
             <div className="">
               {/* <EmailForm /> */}
             </div>
