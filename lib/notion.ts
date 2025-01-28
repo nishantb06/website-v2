@@ -72,8 +72,8 @@ export const getSlugToIdMap = React.cache(async () => {
   return slugToId;
 });
 
-export function removeNoneRoles(blocks: any) {
+export function removeNoneRoles(blocks: Record<string, { role?: string }>) {
     return Object.fromEntries(
-        Object.entries(blocks).filter(([_, value]) => value.role !== 'none')
+        Object.entries(blocks).filter(([, value]) => value.role !== 'none')
     );
 }
