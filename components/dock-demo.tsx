@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { CalendarIcon, HomeIcon, MailIcon, PencilIcon, BookOpen } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -66,6 +66,7 @@ const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: PencilIcon, label: "Blog" },
+    { href: "/projects", icon: BookOpen, label: "Projects" },
   ],
   contact: {
     social: {

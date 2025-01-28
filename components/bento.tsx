@@ -52,7 +52,7 @@ const features = [
     description:
       "ML Engineer focused on building LLM, Computer Vision systems",
     className: "col-span-3 md:col-span-1",
-    href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}`,
+    href: `/projects`,
     cta: "Visit portfolio",
     background: (
       <div>
@@ -125,7 +125,7 @@ const features = [
     Icon: "",
     name: "Tech Domain",
     description: "Sector-agnostic, focused on solving problems with code.",
-    href: `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/projects`,
+    href: `/projects`,
     cta: "View projects",
     className: "md:col-span-2 md:row-span-1",
     background: (
