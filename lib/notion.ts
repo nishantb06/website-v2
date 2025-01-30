@@ -44,7 +44,7 @@ export const fetchBlogBlocks = React.cache(async (blogId: string) => {
   }).then((res) => res.results as BlockObjectResponse[]);
 });
 
-export async function getStaticProps(notionPageId: string) {
+export async function getNotionPage(notionPageId: string) {
   const data = await fetch(
     `https://notion-api.splitbee.io/v1/page/${notionPageId}`
   ).then(res => res.json());

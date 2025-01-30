@@ -1,4 +1,4 @@
-import {  fetchBlogBySlug, getStaticProps } from "@/lib/notion";
+import {  fetchBlogBySlug, fetchBlogs, getNotionPage } from "@/lib/notion";
 import { NotionBlog } from "@/utils/notion.dtypes";
 import { NotionRenderer } from "react-notion";
 import { notFound } from "next/navigation";
@@ -7,26 +7,27 @@ import "prismjs/themes/prism-tomorrow.css";
 import 'prismjs/components/prism-python';
 import BlurIn from "@/components/magicui/blur-in";
 
+export async function generateStaticParams() {
+  // Return an array of params to generate static pages for
+  // Example:
+  const blogs = await fetchBlogs();
+  return blogs.map((blog: NotionBlog) => ({
+    slug: blog.properties.slug.rich_text[0].plain_text,
+  }));
+}
+
 export default async function TempBlog({
   params,
 }: {
   params: { slug: string };
 }) {
   const blog: NotionBlog = await fetchBlogBySlug(params.slug);
-  console.log(blog);
   if (!blog) {
     notFound();
   }
   const pageId = blog.id.replace(/-/g, '');
-  const { props: { blockMap } } = await getStaticProps(pageId);
-  // const blocks = await fetchBlogBlocks(blog.id);
-
-  // const renderer = new NotionRenderer({ client: notion });
-  // renderer.use(hljsPlugin({}));
-  // renderer.use(bookmarkPlugin(undefined));
-  // const html = await renderer.render(...blocks);  // const html = ();
-  // return <Post title={blog.properties.Title.title[0].plain_text} content={html} />;
-
+  const pageData = await getNotionPage(pageId);
+  const blockMap = pageData.props.blockMap;
 
   return (
     <div className="mx-auto">
