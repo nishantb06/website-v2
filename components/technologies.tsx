@@ -48,7 +48,7 @@ interface TechnologiesProps {
 export default function Technologies({ liveLinks = false }: TechnologiesProps) {
   return (
     <div className="">
-      <IconCloud iconSlugs={slugs} liveLinks={liveLinks} />
+      <IconCloud iconSlugs={slugs} />
     </div>
   );
 }
