@@ -19,9 +19,10 @@ export async function generateStaticParams() {
 export default async function TempBlog({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>
 }) {
-  const blog: NotionBlog = await fetchBlogBySlug(params.slug);
+  const { slug } = await params;
+  const blog: NotionBlog = await fetchBlogBySlug(slug);
   if (!blog) {
     notFound();
   }
