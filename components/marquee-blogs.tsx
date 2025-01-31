@@ -1,4 +1,4 @@
-"use server"
+"use client";
 import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
 import { fetchBlogs } from "@/lib/notion";
@@ -23,15 +23,13 @@ const ReviewCard = ({
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
       <div className="flex flex-row items-center gap-2">
         <img className="rounded-full" width="36" height="36" alt="" src={img} />
         <div className="flex flex-col">
-          <p className="text-sm font-semibold dark:text-white">
-            {name}
-          </p>
+          <p className="text-sm font-semibold dark:text-white">{name}</p>
         </div>
       </div>
       <p className="mt-2 text-sm">{body}</p>
@@ -39,18 +37,30 @@ const ReviewCard = ({
   );
 };
 
-export async function MarqueeDemo() {
+async function getStaticProps() {
   const blogs = await fetchBlogs();
   const blogsDataForMarquee = blogs.map((blog) => ({
     name: blog.properties.Title.title[0].plain_text,
     username: blog.properties.slug.rich_text[0]?.plain_text,
     body: blog.properties.Subtitle.rich_text[0]?.plain_text,
-    img: blog.cover?.type === "external" ? blog.cover.external.url : 
-         blog.cover?.type === "file" ? blog.cover.file.url : 
-         "/images/default-blog.jpg"  // Provide a default image path
+    img:
+      blog.cover?.type === "external"
+        ? blog.cover.external.url
+        : blog.cover?.type === "file"
+        ? blog.cover.file.url
+        : "/images/default-blog.jpg", // Provide a default image path
   }));
   const firstRow = blogsDataForMarquee.slice(0, blogsDataForMarquee.length / 2);
   const secondRow = blogsDataForMarquee.slice(blogsDataForMarquee.length / 2);
+
+  return {
+    firstRow,
+    secondRow,
+  };
+}
+
+export async function MarqueeDemo() {
+  const { firstRow, secondRow } = await getStaticProps();
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
