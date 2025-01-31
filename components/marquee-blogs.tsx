@@ -1,4 +1,4 @@
-"use server"
+"use client"
 import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
 import { fetchBlogs } from "@/lib/notion";
